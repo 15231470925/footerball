@@ -2,84 +2,80 @@
 
 <main class="home-page">
 
-    <!-- ==================== 顶部统计栏 ==================== -->
-    <section class="stats-bar">
-        <div class="stats-container">
-            <div class="stat-item">
+    <!-- ==================== Hero 区域（统计 + 主标题） ==================== -->
+    <section class="hero-section">
+        <div class="hero-stats">
+            <div class="hero-stat">
                 <span class="stat-number">782</span>
                 <span class="stat-label">PLAYERS</span>
             </div>
-            <div class="stat-item">
+            <div class="hero-stat">
                 <span class="stat-number">2026</span>
                 <span class="stat-label">FIFA WORLD CUP</span>
             </div>
         </div>
-    </section>
-
-    <!-- ==================== 主标题 ==================== -->
-    <section class="hero-title">
-        <div class="hero-container">
-            <h1 class="main-title">THE ULTIMATE</h1>
-        </div>
+        <h1 class="main-title">THE ULTIMATE</h1>
     </section>
 
     <!-- ==================== 双栏 Banner ==================== -->
     <section class="banner-section">
-        <div class="banner-container">
-            
-            <!-- 左侧黄色促销卡片 -->
-            <div class="promo-card">
-                <div class="promo-content">
-                    <span class="promo-badge">World Cup</span>
-                    <h2 class="promo-title">球迷福利大派送！</h2>
-                    <p class="promo-desc">
-                        订阅即有机会获得 FIFA 官方签名足球 × 3 | 限量版球衣 × 10 套
-                    </p>
-                    <a href="#" class="promo-btn">
-                        立即参与
-                        <span class="arrow">→</span>
-                    </a>
-                </div>
-                <div class="promo-bg-icon">
-                    <span>🏠</span>
-                </div>
-            </div>
-
-            <!-- 右侧比赛信息卡片 -->
-            <div class="match-card">
-                <div class="match-card-header">
-                    <span class="match-date">今日赛程 · 北京时间今晚8:00</span>
-                </div>
-                <div class="match-card-body">
-                    <div class="match-item">
-                        <div class="match-flag">🇦🇷</div>
-                        <span class="match-team-name">Argentina</span>
-                        <span class="match-odds">1.52</span>
+        <div class="container">
+            <div class="banner-container">
+                
+                <!-- 左侧黄色促销卡片 -->
+                <div class="promo-card">
+                    <div class="promo-content">
+                        <span class="promo-badge">World Cup</span>
+                        <h2 class="promo-title">球迷福利大派送！</h2>
+                        <p class="promo-desc">
+                            订阅即有机会获得 FIFA 官方签名足球 × 3 | 限量版球衣 × 10 套
+                        </p>
+                        <a href="#" class="promo-btn">
+                            立即参与
+                            <span class="arrow">→</span>
+                        </a>
                     </div>
-                    <div class="match-item">
-                        <div class="match-flag">🇧🇷</div>
-                        <span class="match-team-name">Brazil</span>
-                        <span class="match-odds">2.45</span>
+                    <div class="promo-bg-icon">
+                        <span>🏠</span>
                     </div>
                 </div>
-            </div>
 
+                <!-- 右侧比赛信息卡片 -->
+                <div class="match-card">
+                    <div class="match-card-header">
+                        <span class="match-date">今日赛程 · 北京时间今晚8:00</span>
+                    </div>
+                    <div class="match-card-body">
+                        <div class="match-item">
+                            <div class="match-flag">🇦🇷</div>
+                            <span class="match-team-name">Argentina</span>
+                            <span class="match-odds">1.52</span>
+                        </div>
+                        <div class="match-item">
+                            <div class="match-flag">🇧🇷</div>
+                            <span class="match-team-name">Brazil</span>
+                            <span class="match-odds">2.45</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
     <!-- ==================== Matchday Essentials ==================== -->
     <section class="essentials-section">
-        <div class="essentials-container">
-            <div class="essentials-header">
-                <h2 class="essentials-title">MATCHDAY ESSENTIALS</h2>
-                <span class="essentials-subtitle">官方周边 · 为你精选 · 限时折扣 · 全场包邮</span>
-                <a href="#" class="essentials-more">View All Gear →</a>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">MATCHDAY ESSENTIALS</h2>
+                <span class="section-subtitle">官方周边 · 为你精选 · 限时折扣 · 全场包邮</span>
+                <a href="#" class="section-more">View All Gear →</a>
             </div>
             <div class="essentials-grid">
                 
                 <div class="essential-card">
                     <span class="essential-tag essential-tag-red">NEW</span>
-                    <div class="essential-icon essential-icon-red">📅</div>
+                    <div class="essential-icon">📅</div>
                     <h3 class="essential-name">FIFA 2026 Official Calendar</h3>
                     <p class="essential-desc">2026年世界杯官方日历</p>
                     <span class="essential-price">¥ 1,299</span>
@@ -88,7 +84,7 @@
 
                 <div class="essential-card">
                     <span class="essential-tag essential-tag-blue">POPULAR</span>
-                    <div class="essential-icon essential-icon-blue">👕</div>
+                    <div class="essential-icon">👕</div>
                     <h3 class="essential-name">Argentina Home Jersey</h3>
                     <p class="essential-desc">阿根廷主场球衣 2026款</p>
                     <span class="essential-price">¥ 699</span>
@@ -97,7 +93,7 @@
 
                 <div class="essential-card">
                     <span class="essential-tag essential-tag-yellow">BEST</span>
-                    <div class="essential-icon essential-icon-yellow">🍺</div>
+                    <div class="essential-icon">⚽</div>
                     <h3 class="essential-name">Official Match Ball</h3>
                     <p class="essential-desc">官方比赛用球 · 全新配色</p>
                     <span class="essential-price">¥ 329</span>
@@ -106,7 +102,7 @@
 
                 <div class="essential-card">
                     <span class="essential-tag essential-tag-green">LIMITED</span>
-                    <div class="essential-icon essential-icon-green">🧤</div>
+                    <div class="essential-icon">🧤</div>
                     <h3 class="essential-name">Goalkeeper Gloves</h3>
                     <p class="essential-desc">门将手套 · 签名限定版</p>
                     <span class="essential-price">¥ 1,599</span>
@@ -119,11 +115,11 @@
 
     <!-- ==================== Upcoming Matches ==================== -->
     <section class="matches-section">
-        <div class="matches-container">
-            <div class="matches-header">
-                <h2 class="matches-title">UPCOMING MATCHES</h2>
-                <span class="matches-subtitle">赛程 · 比分预测 · 实时赔率 · 不容错过</span>
-                <a href="#" class="matches-more">See All Matches →</a>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">UPCOMING MATCHES</h2>
+                <span class="section-subtitle">赛程 · 比分预测 · 实时赔率 · 不容错过</span>
+                <a href="#" class="section-more">See All Matches →</a>
             </div>
             <div class="matches-grid">
                 
@@ -135,7 +131,7 @@
                         </div>
                         <span class="match-vs">VS</span>
                         <div class="match-team">
-                            <span class="team-flag">🇲🇽</span>
+                            <span class="team-flag">🇲</span>
                             <span class="team-name">Mexico</span>
                         </div>
                     </div>
@@ -153,7 +149,7 @@
                         </div>
                         <span class="match-vs">VS</span>
                         <div class="match-team">
-                            <span class="team-flag">🏴󠁢󠁮󠁿</span>
+                            <span class="team-flag">🏴󠁢󠁮󠁧󠁢󠁳󠁿</span>
                             <span class="team-name">England</span>
                         </div>
                     </div>
@@ -189,7 +185,7 @@
                         </div>
                         <span class="match-vs">VS</span>
                         <div class="match-team">
-                            <span class="team-flag">🇩</span>
+                            <span class="team-flag">🇩🇪</span>
                             <span class="team-name">Germany</span>
                         </div>
                     </div>
@@ -205,7 +201,7 @@
 
     <!-- ==================== Featured Teams & Trending Players ==================== -->
     <section class="featured-section">
-        <div class="featured-container">
+        <div class="container">
             
             <div class="featured-tabs">
                 <button class="featured-tab active" data-tab="teams">Featured Teams</button>
@@ -222,14 +218,14 @@
                             <span class="team-row-detail">卫冕冠军 · 梅西领衔</span>
                         </div>
                         <span class="team-vs">🆚</span>
-                        <div class="team-avatar">🇫</div>
+                        <div class="team-avatar">🇫🇷</div>
                         <div class="team-info">
                             <span class="team-row-name">France</span>
                             <span class="team-row-detail">姆巴佩 · 年轻力量</span>
                         </div>
                     </div>
                     <div class="team-row">
-                        <div class="team-avatar">🇧</div>
+                        <div class="team-avatar">🇧🇷</div>
                         <div class="team-info">
                             <span class="team-row-name">Brazil</span>
                             <span class="team-row-detail">桑巴军团 · 五冠王</span>
@@ -295,7 +291,7 @@
 
     <!-- ==================== Shop by Team Colors ==================== -->
     <section class="shop-colors-section">
-        <div class="shop-colors-container">
+        <div class="container">
             <h2 class="shop-colors-title">SHOP BY TEAM COLORS</h2>
             <p class="shop-colors-subtitle">按球队颜色选购 · 展示你的支持</p>
             
@@ -320,7 +316,7 @@
                 </div>
 
                 <div class="color-card color-card-white">
-                    <span class="color-card-icon">🏴󠁢󠁮󠁿</span>
+                    <span class="color-card-icon">🏴󠁢󠁥󠁮󠁿</span>
                     <h3 class="color-card-name">England Home Kit</h3>
                     <span class="color-card-price">From ¥479</span>
                 </div>
@@ -332,7 +328,7 @@
                 </div>
 
                 <div class="color-card color-card-darkblue">
-                    <span class="color-card-icon">🇰🇷</span>
+                    <span class="color-card-icon">🇰</span>
                     <h3 class="color-card-name">Korea Away Kit</h3>
                     <span class="color-card-price">From ¥429</span>
                 </div>
@@ -351,7 +347,7 @@
 
     <!-- ==================== Latest News & Analysis ==================== -->
     <section class="news-section">
-        <div class="news-container">
+        <div class="container">
             <div class="news-header">
                 <h2 class="news-title">LATEST NEWS & ANALYSIS</h2>
                 <span class="news-subtitle">最新资讯 · 深度分析 · 专家观点 · 精彩不容错过</span>

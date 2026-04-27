@@ -9,147 +9,214 @@ body {
     font-family: "Microsoft YaHei", Arial, sans-serif;
 }
 
-/* 顶部导航 */
-.top-header {
-    background: #0b2a55;
-    height: 60px;
+/* ============================
+   Header
+   ============================ */
+.site-header {
+    background: #0b1a30;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
-    color: #fff;
 }
 
-/* 左侧LOGO */
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #ffd700;
+/* Logo */
+.header-logo {
+    font-size: 18px;
+    font-weight: 800;
+    color: #f5c518;
+    white-space: nowrap;
+    letter-spacing: 1px;
 }
 
-/* 中间导航 */
-.nav {
+/* Navigation */
+.header-nav {
     display: flex;
-    gap: 30px;
+    gap: 24px;
 }
 
-.nav a {
-    color: #fff;
+.header-nav a {
+    color: rgba(255,255,255,0.8);
     text-decoration: none;
-    font-size: 15px;
-    transition: 0.3s;
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.2s;
+    white-space: nowrap;
 }
 
-.nav a:hover {
-    color: #ffd700;
+.header-nav a:hover {
+    color: #fff;
 }
 
-/* 右侧区域 */
-.right-box {
+/* Right Side */
+.header-right {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 16px;
 }
 
-.search-box input {
-    padding: 6px 12px;
+.header-search input {
+    padding: 6px 14px;
     border-radius: 20px;
-    border: none;
-    outline: none;
-    font-size: 14px;
-}
-
-.auth a {
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
     color: #fff;
+    outline: none;
+    font-size: 12px;
+    width: 180px;
+    transition: all 0.2s;
+}
+
+.header-search input::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+
+.header-search input:focus {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.25);
+    width: 220px;
+}
+
+.header-auth {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-auth a {
+    color: rgba(255,255,255,0.8);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: color 0.2s;
 }
 
-.auth a:hover {
-    color: #ffd700;
+.header-auth a:hover {
+    color: #fff;
 }
 
-/* 下方蓝色分割线 */
-.bottom-line {
-    height: 4px;
-    background: #1e73ff;
+.auth-divider {
+    color: rgba(255,255,255,0.3);
+    font-size: 12px;
+}
+
+.header-user-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+
+.header-user-icon:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* Bottom Line */
+.header-line {
+    height: 2px;
+    background: linear-gradient(90deg, #f5c518, #e8a817);
 }
 
 /* ============================
    移动端适配
    ============================ */
 @media (max-width: 1024px) {
-    .top-header {
-        padding: 0 24px;
+    .header-inner {
+        padding: 0 16px;
     }
 
-    .nav {
-        gap: 20px;
+    .header-nav {
+        gap: 18px;
     }
 
-    .nav a {
-        font-size: 14px;
+    .header-nav a {
+        font-size: 12px;
+    }
+
+    .header-search input {
+        width: 140px;
+    }
+
+    .header-search input:focus {
+        width: 160px;
     }
 }
 
 @media (max-width: 768px) {
-    .top-header {
+    .header-inner {
         flex-wrap: wrap;
         height: auto;
-        padding: 12px 16px;
-        gap: 10px;
+        padding: 10px 12px;
+        gap: 8px;
     }
 
-    .logo {
-        font-size: 18px;
+    .header-logo {
+        font-size: 16px;
     }
 
-    .nav {
+    .header-nav {
         order: 3;
         width: 100%;
         justify-content: center;
-        gap: 16px;
-        padding-top: 8px;
-        border-top: 1px solid rgba(255,255,255,0.1);
+        gap: 14px;
+        padding-top: 6px;
+        border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    .nav a {
-        font-size: 13px;
+    .header-nav a {
+        font-size: 11px;
     }
 
-    .search-box {
+    .header-search {
         display: none;
     }
 
-    .right-box {
-        gap: 10px;
+    .header-auth a {
+        font-size: 11px;
     }
 
-    .auth a {
-        font-size: 13px;
+    .header-user-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
     }
 }
 
 @media (max-width: 480px) {
-    .top-header {
-        padding: 10px 12px;
+    .header-inner {
+        padding: 8px 10px;
     }
 
-    .logo {
-        font-size: 16px;
+    .header-logo {
+        font-size: 14px;
     }
 
-    .nav {
-        gap: 12px;
+    .header-nav {
+        gap: 10px;
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    .nav a {
-        font-size: 12px;
+    .header-nav a {
+        font-size: 10px;
     }
 
-    .auth a {
-        font-size: 12px;
+    .header-auth a {
+        font-size: 10px;
     }
 }
