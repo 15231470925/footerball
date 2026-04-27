@@ -6,14 +6,33 @@
     <section class="hero-section">
         <div class="hero-inner">
             
+            <?php
+            // 世界杯开球时间：2026年6月11日
+            $kickoff_date = new DateTime('2026-06-11 00:00:00', new DateTimeZone('Asia/Shanghai'));
+            $now = new DateTime('now', new DateTimeZone('Asia/Shanghai'));
+            $diff = $now->diff($kickoff_date);
+            $is_kickoff = ($now >= $kickoff_date);
+            
+            if (!$is_kickoff) {
+                // 倒计时模式
+                $days = $diff->days;
+                $hours = $diff->h;
+            } else {
+                // 进行中模式
+                $days_since = $diff->days;
+            }
+            ?>
+            
             <!-- 倒计时区域 -->
-            <div class="hero-countdown">
+            <?php if (!$is_kickoff): ?>
+            <div class="hero-countdown" id="countdown-container" 
+                 data-kickoff="<?php echo $kickoff_date->format('Y-m-d H:i:s'); ?>">
                 <div class="countdown-block">
-                    <span class="countdown-number">782</span>
+                    <span class="countdown-number" id="countdown-days"><?php echo $days; ?></span>
                     <span class="countdown-unit">DAYS</span>
                 </div>
                 <div class="countdown-block">
-                    <span class="countdown-number">14</span>
+                    <span class="countdown-number" id="countdown-hours"><?php echo $hours; ?></span>
                     <span class="countdown-unit">HOURS</span>
                 </div>
                 <div class="countdown-text">
@@ -21,6 +40,19 @@
                     <span class="countdown-event">2026 WORLD CUP</span>
                 </div>
             </div>
+            <?php else: ?>
+            <!-- 进行中区域 -->
+            <div class="hero-ongoing">
+                <div class="ongoing-badge">
+                    <span class="ongoing-dot"></span>
+                    <span class="ongoing-text">LIVE</span>
+                </div>
+                <div class="ongoing-info">
+                    <span class="ongoing-label">WORLD CUP IN PROGRESS</span>
+                    <span class="ongoing-days">Day <?php echo $days_since; ?></span>
+                </div>
+            </div>
+            <?php endif; ?>
 
             <!-- 主标题 -->
             <h1 class="main-title">THE ULTIMATE</h1>
@@ -414,26 +446,79 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Tab 切换功能
+    
+    /* =========================
+    ✅ Tab 切换
+    ========================== */
     const tabs = document.querySelectorAll('.featured-tab');
     const contents = document.querySelectorAll('.featured-content');
     
     tabs.forEach(function(tab) {
         tab.addEventListener('click', function() {
-            // 移除所有 active 类
             tabs.forEach(function(t) { t.classList.remove('active'); });
             contents.forEach(function(c) { c.classList.remove('active'); });
             
-            // 添加 active 类到当前 tab
             this.classList.add('active');
-            
-            // 显示对应的内容
             var target = document.getElementById('tab-' + this.dataset.tab);
             if (target) {
                 target.classList.add('active');
             }
         });
     });
+    
+    /* =========================
+    ✅ 动态倒计时
+    ========================== */
+    var countdownContainer = document.getElementById('countdown-container');
+    
+    if (countdownContainer) {
+        var kickoffStr = countdownContainer.getAttribute('data-kickoff');
+        var kickoffTime = new Date(kickoffStr.replace(' ', 'T') + '+08:00').getTime();
+        
+        var daysEl = document.getElementById('countdown-days');
+        var hoursEl = document.getElementById('countdown-hours');
+        
+        function updateCountdown() {
+            var now = Date.now();
+            var remaining = kickoffTime - now;
+            
+            if (remaining <= 0) {
+                // 倒计时结束，切换到进行中模式
+                countdownContainer.style.display = 'none';
+                
+                // 计算已经进行的天数
+                var elapsedMs = now - kickoffTime;
+                var elapsedDays = Math.floor(elapsedMs / (1000 * 60 * 60 * 24)) + 1;
+                
+                // 创建进行中区域
+                var ongoingDiv = document.createElement('div');
+                ongoingDiv.className = 'hero-ongoing';
+                ongoingDiv.innerHTML = 
+                    '<div class="ongoing-badge">' +
+                        '<span class="ongoing-dot"></span>' +
+                        '<span class="ongoing-text">LIVE</span>' +
+                    '</div>' +
+                    '<div class="ongoing-info">' +
+                        '<span class="ongoing-label">WORLD CUP IN PROGRESS</span>' +
+                        '<span class="ongoing-days">Day ' + elapsedDays + '</span>' +
+                    '</div>';
+                countdownContainer.parentNode.insertBefore(ongoingDiv, countdownContainer);
+                
+                clearInterval(countdownInterval);
+                return;
+            }
+            
+            var days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            
+            if (daysEl) daysEl.textContent = days;
+            if (hoursEl) hoursEl.textContent = hours;
+        }
+        
+        updateCountdown();
+        var countdownInterval = setInterval(updateCountdown, 1000);
+    }
+    
 });
 </script>
 
