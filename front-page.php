@@ -2,19 +2,30 @@
 
 <main class="home-page">
 
-    <!-- ==================== Hero 区域（统计 + 主标题） ==================== -->
+    <!-- ==================== Hero 区域 ==================== -->
     <section class="hero-section">
-        <div class="hero-stats">
-            <div class="hero-stat">
-                <span class="stat-number">782</span>
-                <span class="stat-label">PLAYERS</span>
+        <div class="hero-inner">
+            
+            <!-- 倒计时区域 -->
+            <div class="hero-countdown">
+                <div class="countdown-block">
+                    <span class="countdown-number">782</span>
+                    <span class="countdown-unit">DAYS</span>
+                </div>
+                <div class="countdown-block">
+                    <span class="countdown-number">14</span>
+                    <span class="countdown-unit">HOURS</span>
+                </div>
+                <div class="countdown-text">
+                    <span class="countdown-label">UNTIL KICK-OFF</span>
+                    <span class="countdown-event">2026 WORLD CUP</span>
+                </div>
             </div>
-            <div class="hero-stat">
-                <span class="stat-number">2026</span>
-                <span class="stat-label">FIFA WORLD CUP</span>
-            </div>
+
+            <!-- 主标题 -->
+            <h1 class="main-title">THE ULTIMATE</h1>
+
         </div>
-        <h1 class="main-title">THE ULTIMATE</h1>
     </section>
 
     <!-- ==================== 双栏 Banner ==================== -->
