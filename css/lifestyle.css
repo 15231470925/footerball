@@ -1,0 +1,550 @@
+/* ============================
+   全局重置与基础样式
+   ============================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #f5f5f5;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================
+   面包屑导航
+   ============================ */
+.breadcrumb {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 0 20px;
+    font-size: 12px;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+/* ============================
+主内容区域 
+============================*/
+.page-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 40px;
+}
+
+/* 响应式 */
+@media (max-width: 992px) {
+    .page-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================
+   文章区域 - 保持在左侧
+   ============================ */
+.article {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    order: 1; /* 确保在左侧 */
+}
+
+/* 文章标题 */
+.article-title {
+    font-size: 42px;
+    font-weight: 800;
+    font-style: italic;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: #000;
+    text-transform: uppercase;
+}
+
+/* 文章元信息 */
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #e5e5e5;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-initials {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #003d7a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.author-name {
+    color: #003d7a;
+    margin-right: 8px;
+}
+
+.author-role {
+    color: #666;
+    margin-right: 8px;
+}
+
+.publish-date {
+    color: #999;
+    margin-left: auto;
+}
+
+/* 文章配图 */
+.article-figure {
+    margin-bottom: 32px;
+}
+
+.article-img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.article-figure figcaption {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
+}
+
+/* 文章正文 */
+.article-body {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #333;
+}
+
+.article-body p {
+    margin-bottom: 20px;
+}
+
+.article-body h2,
+.article-body h3 {
+    font-size: 28px;
+    font-weight: 800;
+    font-style: italic;
+    text-transform: uppercase;
+    margin: 40px 0 20px;
+    color: #000;
+}
+
+.article-body blockquote {
+    border-left: 4px solid #003d7a;
+    padding: 20px 24px;
+    margin: 32px 0;
+    background: #f8f9fa;
+    font-style: italic;
+    font-size: 18px;
+    color: #1a1a1a;
+}
+
+.article-body blockquote cite {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+    font-style: normal;
+    color: #666;
+    font-weight: 600;
+}
+
+/* 商品推荐卡片（文章内） */
+.product-ad {
+    margin: 40px 0;
+    background: linear-gradient(135deg, #003d7a 0%, #0056b3 100%);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.product-card {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    padding: 24px;
+    align-items: center;
+}
+
+.product-img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.product-info {
+    color: #fff;
+}
+
+.product-info h3 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    opacity: 0.8;
+}
+
+.product-info h4 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.product-price {
+    display: block;
+    font-size: 24px;
+    font-weight: 800;
+    margin: 12px 0 16px;
+}
+
+.shop-now {
+    background: #ffd700;
+    color: #003d7a;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-transform: uppercase;
+}
+
+.shop-now:hover {
+    transform: translateY(-2px);
+}
+
+/* 文章标签 */
+.article-tags {
+    margin: 32px 0;
+    padding: 20px 0;
+    border-top: 1px solid #e5e5e5;
+    font-size: 14px;
+    color: #666;
+}
+
+.article-tags a {
+    color: #003d7a;
+    transition: color 0.2s;
+}
+
+.article-tags a:hover {
+    color: #0056b3;
+}
+
+/* 作者卡片 */
+.author-card {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 24px;
+    padding: 32px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 40px;
+}
+
+.author-card-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-initials-large {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #003d7a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.author-card-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.author-card-info h4 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.author-card-info p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 16px;
+}
+
+.view-all-posts {
+    color: #003d7a;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.view-all-posts:hover {
+    color: #0056b3;
+}
+
+/* ============================
+   侧边栏 - 固定在右侧
+   ============================ */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    order: 2; /* 确保在右侧 */
+}
+
+.sidebar-widget {
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-widget h3 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    color: #003d7a;
+}
+
+/* ============================
+   粉丝投票 - 增强样式
+   ============================ */
+.fan-poll {
+    background: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+    color: #fff;
+}
+
+.fan-poll h3 {
+    color: #ffd700;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.fan-poll h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.fan-poll > p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 16px;
+}
+
+.poll-option {
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.poll-option:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #ffd700;
+    transform: translateX(4px);
+}
+
+/* 商品推荐（侧边栏） */
+.shop-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.shop-item:last-of-type {
+    border-bottom: none;
+}
+
+.shop-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.shop-item-info h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.shop-item-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #003d7a;
+}
+
+.view-all-gear {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #003d7a;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.view-all-gear:hover {
+    background: #0056b3;
+}
+
+/* ============================
+   热门趋势 - 优化样式
+   ============================ */
+.trending-now h3 {
+    color: #003d7a;
+    border-bottom: 2px solid #003d7a;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+
+.trend-item {
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.trend-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.trend-type {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    background: #003d7a;
+    padding: 4px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.trend-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.trend-description {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* ============================
+   响应式设计
+   ============================ */
+@media (max-width: 1024px) {
+    .page-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    /* 移动端：侧边栏显示在底部 */
+    .article {
+        order: 1;
+    }
+    
+    .sidebar {
+        order: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .article {
+        padding: 24px;
+    }
+    
+    .article-title {
+        font-size: 32px;
+    }
+    
+    .product-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .author-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .author-card-avatar,
+    .author-initials-large {
+        margin: 0 auto;
+    }
+    
+    .fan-poll h4 {
+        font-size: 16px;
+    }
+}
