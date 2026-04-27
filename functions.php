@@ -6,6 +6,14 @@
  */
 
 /* ============================================
+   ✅ 全局版本号控制
+   ============================================
+   每次修改 CSS/JS 后，修改此版本号即可强制刷新前端缓存。
+   建议格式：年月日-序号，例如 20260427-1
+*/
+define('THEME_VERSION', '20260427-1');
+
+/* ============================================
    ✅ 样式加载
    ============================================ */
 
@@ -21,7 +29,7 @@ function twenty_twenty_five_child_enqueue_styles() {
         'main-style',
         get_stylesheet_directory_uri() . '/css/main.css',
         array('parent-style'),
-        '1.0.0'
+        THEME_VERSION
     );
 }
 add_action('wp_enqueue_scripts', 'twenty_twenty_five_child_enqueue_styles');
@@ -33,7 +41,7 @@ function my_home_styles() {
             'home-style',
             get_stylesheet_directory_uri() . '/css/home.css',
             array('main-style'),
-            '1.0.0'
+            THEME_VERSION
         );
     }
 }
@@ -45,7 +53,7 @@ function my_footer_styles() {
         'footer-style',
         get_stylesheet_directory_uri() . '/css/footer.css',
         array('main-style'),
-        '1.0.0'
+        THEME_VERSION
     );
 }
 add_action('wp_enqueue_scripts', 'my_footer_styles');
@@ -56,7 +64,7 @@ function my_header_styles() {
         'header-style',
         get_stylesheet_directory_uri() . '/css/header.css',
         array('main-style'),
-        '1.0.0'
+        THEME_VERSION
     );
 }
 add_action('wp_enqueue_scripts', 'my_header_styles');
@@ -68,7 +76,7 @@ function my_player_styles() {
             'players-style',
             get_stylesheet_directory_uri() . '/css/players.css',
             array('main-style'),
-            '1.0.0'
+            THEME_VERSION
         );
     }
 }
@@ -81,11 +89,24 @@ function my_lifestyle_styles() {
             'lifestyle-style',
             get_stylesheet_directory_uri() . '/css/lifestyle.css',
             array('main-style'),
-            '1.0.0'
+            THEME_VERSION
         );
     }
 }
 add_action('wp_enqueue_scripts', 'my_lifestyle_styles');
+
+/* ✅ teams 页面样式 */
+function my_teams_styles() {
+    if (is_singular('teams')) {
+        wp_enqueue_style(
+            'teams-style',
+            get_stylesheet_directory_uri() . '/css/teams.css',
+            array('main-style'),
+            THEME_VERSION
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'my_teams_styles');
 
 /* ============================================
    ✅ ACF 选项页面
@@ -100,6 +121,32 @@ if (function_exists('acf_add_options_page')) {
         'redirect'   => false
     ));
 }
+
+/* ============================================
+   ✅ 注册 Teams 自定义文章类型
+   ============================================ */
+
+function register_teams_cpt() {
+    register_post_type('teams', array(
+        'label'         => 'Teams',
+        'labels'        => array(
+            'name'          => 'Teams',
+            'singular_name' => 'Team',
+            'add_new'       => 'Add New Team',
+            'edit_item'     => 'Edit Team',
+            'view_item'     => 'View Team',
+            'all_items'     => 'All Teams',
+        ),
+        'public'        => true,
+        'has_archive'   => true,
+        'rewrite'       => array('slug' => 'teams'),
+        'supports'      => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'menu_icon'     => 'dashicons-flag',
+        'show_in_rest'  => true,
+        'menu_position' => 5,
+    ));
+}
+add_action('init', 'register_teams_cpt');
 
 /* ============================================
    ✅ 注册 Players 自定义文章类型
@@ -156,6 +203,14 @@ add_action('init', 'register_lifestyle_cpt');
    ============================================ */
 
 add_filter('template_include', function ($template) {
+    // Teams 单页模板
+    if (is_singular('teams')) {
+        $custom = get_stylesheet_directory() . '/single-teams.php';
+        if (file_exists($custom)) {
+            return $custom;
+        }
+    }
+    
     // Players 单页模板
     if (is_singular('players')) {
         $custom = get_stylesheet_directory() . '/single-players.php';
