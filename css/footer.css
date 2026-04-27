@@ -6,11 +6,12 @@
 }
 
 .footer-container {
-    width: 1200px;
+    max-width: 1400px;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
+    padding: 0 40px;
 }
 
 .footer-col h3 {
@@ -69,10 +70,10 @@
 .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.1);
     margin-top: 40px;
-    padding-top: 20px;
+    padding: 20px 40px 0;
     display: flex;
     justify-content: space-between;
-    width: 1200px;
+    max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
     font-size: 13px;
@@ -80,4 +81,56 @@
 
 .footer-links a {
     margin-left: 15px;
+}
+
+/* ============================
+   移动端适配
+   ============================ */
+@media (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 16px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+        padding: 20px 16px 0;
+    }
+
+    .footer-links a {
+        margin: 0 8px;
+    }
+
+    .site-footer {
+        padding: 40px 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        padding: 0 12px;
+    }
+
+    .subscribe-form {
+        flex-direction: column;
+    }
+
+    .subscribe-form input {
+        border-radius: 4px;
+        margin-bottom: 8px;
+    }
+
+    .subscribe-form button {
+        border-radius: 4px;
+    }
 }

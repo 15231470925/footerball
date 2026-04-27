@@ -74,3 +74,82 @@ body {
     height: 4px;
     background: #1e73ff;
 }
+
+/* ============================
+   移动端适配
+   ============================ */
+@media (max-width: 1024px) {
+    .top-header {
+        padding: 0 24px;
+    }
+
+    .nav {
+        gap: 20px;
+    }
+
+    .nav a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-header {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 12px 16px;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 16px;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav a {
+        font-size: 13px;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .right-box {
+        gap: 10px;
+    }
+
+    .auth a {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-header {
+        padding: 10px 12px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav a {
+        font-size: 12px;
+    }
+
+    .auth a {
+        font-size: 12px;
+    }
+}
